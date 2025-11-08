@@ -13,6 +13,20 @@ return new class extends Migration
     {
         Schema::create('_publication_categories', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('publication_id')->unique();
+            $table->unsignedBigInteger('category_id')->unique();
+
+            $table->foreign('publication_id')
+            ->references('id')
+            ->on('publications')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreign('category_id')
+            ->references('id')
+            ->on('categories')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }
