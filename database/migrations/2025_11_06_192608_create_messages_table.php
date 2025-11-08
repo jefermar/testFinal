@@ -13,6 +13,23 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+             $table->string('content');
+            $table->boolean('is_read')->default(false);
+
+            $table->unsignedBigInteger('sendes_profile_id');
+            $table->unsignedBigInteger('receiver_profile_id');
+
+            $table-> foreign('sendes_profile_id')
+            ->references('id')
+            ->on('profiles')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table-> foreign('receiver_profile_id')
+            ->references('id')
+            ->on('profiles')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }
