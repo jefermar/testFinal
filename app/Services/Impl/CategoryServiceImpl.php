@@ -14,7 +14,7 @@ class CategoryServiceImpl implements CategoryService
 
     function show($id)
     {
-        return Category::with(['course', 'computer'])->find($id);
+        return Category::with(['publications'])->find($id);
     }
 
     function create(array $data)

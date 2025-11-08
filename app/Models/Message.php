@@ -2,10 +2,16 @@
 
 namespace App\Models;
 
+use App\Traits\HasSmartScopes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
+    use HasFactory, HasSmartScopes;
+
+    protected $fillable = ['conten', 'is_read','sendes_profile_id', 'receiver_profile_id'];
+
     //
     public function sender()
     {

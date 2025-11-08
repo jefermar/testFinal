@@ -2,10 +2,16 @@
 
 namespace App\Models;
 
+use App\Traits\HasSmartScopes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
+    use HasFactory, HasSmartScopes;
+
+    protected $fillable = ['photo','vereda','phone','user_id','role_id'];
+
     //
     public function user(){
         return $this->belongsTo(User::class);
