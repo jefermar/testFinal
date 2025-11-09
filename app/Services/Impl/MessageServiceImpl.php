@@ -14,7 +14,7 @@ class MessageServiceImpl implements MessageService
 
     function show($id)
     {
-        return Message::with(['course', 'computer'])->find($id);
+        return Message::with(['sender','receiver'])->find($id);
     }
 
     function create(array $data)

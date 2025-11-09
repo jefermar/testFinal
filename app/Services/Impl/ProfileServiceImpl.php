@@ -14,7 +14,7 @@ class ProfileServiceImpl implements ProfileService
 
     function show($id)
     {
-        return Profile::with(['course', 'computer'])->find($id);
+        return Profile::with(['user','role','publication','sentMessages','receivedMessages'])->find($id);
     }
 
     function create(array $data)

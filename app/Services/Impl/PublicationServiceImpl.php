@@ -14,7 +14,7 @@ class PublicationServiceImpl implements PublicationService
 
     function show($id)
     {
-        return Publication::with(['course', 'computer'])->find($id);
+        return Publication::with(['profile','notification','categories'])->find($id);
     }
 
     function create(array $data)

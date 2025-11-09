@@ -14,7 +14,7 @@ class UserServiceImpl implements UserService
 
     function show($id)
     {
-        return User::with(['course', 'computer'])->find($id);
+        return User::with(['profile'])->find($id);
     }
 
     function create(array $data)

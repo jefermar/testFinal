@@ -14,7 +14,7 @@ class RoleServiceImpl implements RoleService
 
     function show($id)
     {
-        return Role::with(['course', 'computer'])->find($id);
+        return Role::with(['profile'])->find($id);
     }
 
     function create(array $data)
